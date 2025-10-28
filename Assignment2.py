@@ -1,16 +1,36 @@
 # Function 1: Lists - Finding the Maximum and Second Maximum in a List
 # This function takes a list of numbers as input and returns the maximum and second maximum values.
 def max_two_in_list(numbers):
-    return (0, 0)
+    unique_numbers = list(set(numbers))  
+
+    if len(unique_numbers) < 2:
+        return (unique_numbers[0], None) if unique_numbers else (None, None)
+
+    max_val = max(unique_numbers)
+    unique_numbers.remove(max_val)
+    second_max = max(unique_numbers)
+
+    return max_val, second_max
+#DONE!!!
 
 # Function 2: Lists - Removing Duplicates and Sorting
 # This function takes a list of numbers and returns a sorted list with duplicates removed.
 def remove_duplicates_and_sort(numbers):
-    return []
+    return sorted(set(numbers))
+
+#DONE!!!!
+
+
 # Function 3: Single-Dimensional Arrays - Cumulative Sum
 # This function takes an array (list) of numbers and returns a new list where each element is the cumulative sum of the previous elements.
 def cumulative_sum(arr):
-    return []
+    result = []
+    total = 0
+    for num in arr:
+        total += num         
+        result.append(total) 
+    return result
+
 
 # Function 4: Two-Dimensional Arrays - Matrix Transpose
 # This function takes a 2D list (matrix) and returns its transpose.
