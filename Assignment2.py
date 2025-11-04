@@ -30,23 +30,65 @@ def cumulative_sum(arr):
         total += num         
         result.append(total) 
     return result
-
+#DONE!!!!
 
 # Function 4: Two-Dimensional Arrays - Matrix Transpose
 # This function takes a 2D list (matrix) and returns its transpose.
 def transpose_matrix(matrix):
-    return [[]]
+    rows = len(matrix)
+    cols = len(matrix[0]) if rows > 0 else 0
+    
+    # Create the transposed matrix
+    transposed = []
+    for c in range(cols):
+        new_row = []
+        for r in range(rows):
+            new_row.append(matrix[r][c])
+        transposed.append(new_row)
+    
+    
+    return transposed
+#DONE!!!!!
+
+
+
+
+
 # Function 5: Slicing - Extracting Every Nth Element
 # This function takes a list and a step value N and returns every Nth element.
 def slice_every_nth(lst, step):
-    return []
+    if step <= 0:
+      return []
+    return lst[::step]
+#DONE!!!!
 
 # Function 6: Arithmetic Operations with Arrays - Dot Product
 # This function takes two lists of the same length and returns their dot product.
 def dot_product(list1, list2):
-    return 0
+    total = 0
+    for a, b in zip(list1, list2):
+        total += a * b
+    return total
+
+#DONE!!!!
 
 # Function 7: Arithmetic Operations with Arrays - Matrix Multiplication
 # This function takes two 2D lists (matrices) and returns their matrix product.
 def matrix_multiplication(matrix1, matrix2):
-    return [[0, 0], [0, 0]]
+    rows1 = len(matrix1)
+    cols1 = len(matrix1[0])
+    rows2 = len(matrix2)
+    cols2 = len(matrix2[0])
+    
+    if cols1 != rows2:
+        raise ValueError("Cannot multiply: number of columns in matrix1 must equal number of rows in matrix2")
+    
+    result = [[0 for _ in range(cols2)] for _ in range(rows1)]
+    
+    for i in range(rows1):
+        for j in range(cols2):
+            for k in range(cols1):
+                result[i][j] += matrix1[i][k] * matrix2[k][j]
+    
+    return result
+#DONE!!!!!!!!!!!!!!
